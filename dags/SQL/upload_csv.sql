@@ -1,5 +1,5 @@
 COPY myschema.user_purchase 
-FROM 'data/user_purchase.csv'
+FROM '/home/armando/wizeline_deb/capstone_project/data/user_purchase.csv'
 DELIMITER ','
 CSV HEADER
 ;

@@ -25,8 +25,8 @@ default_args = {
     # 'email_on_retry': False,
     # If a task fails, retry it once after waiting
     # at least 15 minutes
-    "retries": 1,
-    "retry_delay": datetime.timedelta(minutes=15),
+    "retries": 0,
+    # "retry_delay": datetime.timedelta(minutes=15),
 }
 
 dag_psql = DAG(
@@ -46,7 +46,7 @@ with open("/home/armando/wizeline_deb/capstone_project/dags/SQL/create_table.sql
 create_table = PostgresOperator(
     sql=create_table_sql,
     task_id="create_table",
-    # postgres_conn_id="postgres_local",
+    postgres_conn_id="postgres_local",
     dag=dag_psql,
     autocommit=True
 )
@@ -57,7 +57,7 @@ with open("/home/armando/wizeline_deb/capstone_project/dags/SQL/upload_csv.sql",
 populate_table = PostgresOperator(
     sql=populate_sql,
     task_id="populate_table",
-    # postgres_conn_id="postgres_local",
+    postgres_conn_id="postgres_local",
     dag=dag_psql,
     autocommit=True
 )
