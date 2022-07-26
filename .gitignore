@@ -1,4 +1,5 @@
+dags/__pycache__
+# deb is the python venv  
 deb
-data
-**/__pycache__
+data/*.csv
 instructions.txt
